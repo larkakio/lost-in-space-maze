@@ -14,7 +14,7 @@ function getRootUrl(): string {
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`;
   }
-  return 'https://yourdomain.com';
+  return 'https://lost-in-space-maze.vercel.app';
 }
 
 const ROOT_URL = getRootUrl();

@@ -7,26 +7,26 @@
   "miniapp": {
     "version": "1",
     "name": "Lost in Space Maze",
-    "homeUrl": "https://yourdomain.com/",
-    "iconUrl": "https://yourdomain.com/icon.png",
-    "imageUrl": "https://yourdomain.com/hero-image.png",
+    "homeUrl": "https://lost-in-space-maze.vercel.app/",
+    "iconUrl": "https://lost-in-space-maze.vercel.app/icon.png",
+    "imageUrl": "https://lost-in-space-maze.vercel.app/hero-image.png",
     "buttonTitle": "Play Now",
-    "splashImageUrl": "https://yourdomain.com/hero-image.png",
+    "splashImageUrl": "https://lost-in-space-maze.vercel.app/hero-image.png",
     "splashBackgroundColor": "#0a0e1a",
-    "webhookUrl": "https://yourdomain.com/api/webhook",
+    "webhookUrl": "https://lost-in-space-maze.vercel.app/api/webhook",
     "subtitle": "Navigate cosmic mazes",
     "description": "A futuristic space maze adventure game where you navigate through neon corridors to reach distant planets. Test your skills across procedurally generated levels.",
     "screenshotUrls": [
-      "https://yourdomain.com/screenshot-1.png",
-      "https://yourdomain.com/screenshot-2.png"
+      "https://lost-in-space-maze.vercel.app/screenshot-1.png",
+      "https://lost-in-space-maze.vercel.app/screenshot-2.png"
     ],
     "primaryCategory": "games",
     "tags": ["maze", "puzzle", "space", "arcade", "retro"],
-    "heroImageUrl": "https://yourdomain.com/hero-image.png",
+    "heroImageUrl": "https://lost-in-space-maze.vercel.app/hero-image.png",
     "tagline": "Lost in the cosmic labyrinth",
     "ogTitle": "Lost in Space Maze",
     "ogDescription": "Navigate through cosmic mazes in this futuristic space adventure game",
-    "ogImageUrl": "https://yourdomain.com/hero-image.png",
+    "ogImageUrl": "https://lost-in-space-maze.vercel.app/hero-image.png",
     "noindex": false,
     "requiredChains": ["eip155:8453"]
   }
