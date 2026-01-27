@@ -7,7 +7,20 @@ import { FarcasterReady } from '@/components/FarcasterReady';
 const inter = Inter({ subsets: ['latin'] });
 
 // Farcaster Mini App metadata
-const ROOT_URL = process.env.NEXT_PUBLIC_ROOT_URL || 'https://yourdomain.com';
+function getRootUrl(): string {
+  if (typeof window !== 'undefined') {
+    return window.location.origin;
+  }
+  if (process.env.NEXT_PUBLIC_ROOT_URL) {
+    return process.env.NEXT_PUBLIC_ROOT_URL;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return 'https://yourdomain.com';
+}
+
+const ROOT_URL = getRootUrl();
 
 const FC_EMBED = {
   version: '1',
