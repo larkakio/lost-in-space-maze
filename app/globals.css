@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Audiowide&family=Exo+2:wght@300;400;600;700&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+@layer base {
+  body {
+    @apply bg-space-dark text-white font-body;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@layer components {
+  .neon-glow {
+    box-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor,
+      0 0 40px rgba(0, 255, 255, 0.5);
+    text-shadow:
+      0 0 10px currentColor,
+      0 0 20px currentColor;
+  }
+  
+  .glass-panel {
+    @apply bg-space-medium/70 backdrop-blur-lg border border-white/10;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+  
+  .btn-primary {
+    @apply px-8 py-4 bg-neon-cyan text-space-dark font-bold rounded-lg 
+           transition-all duration-300 hover:scale-105 hover:shadow-lg 
+           hover:shadow-neon-cyan/50 active:scale-95;
+    min-height: 44px;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 border-2 border-neon-green text-neon-green 
+           rounded-lg transition-all duration-300 hover:bg-neon-green 
+           hover:text-space-dark hover:shadow-lg hover:shadow-neon-green/50;
+    min-height: 44px;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Remove default button styles for touch devices */
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Prevent text selection on game elements */
+.game-container {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
