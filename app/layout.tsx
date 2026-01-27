@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { GameProvider } from '@/context/GameContext';
 import { FarcasterReady } from '@/components/FarcasterReady';
-
-const inter = Inter({ subsets: ['latin'] });
 
 // Farcaster Mini App metadata
 function getRootUrl(): string {
@@ -58,7 +55,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <FarcasterReady />
         <GameProvider>
           {children}
