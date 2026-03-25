@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { GameProvider } from '@/context/GameContext';
-import { FarcasterReady } from '@/components/FarcasterReady';
+import { Providers } from './providers';
 
 // Farcaster Mini App metadata
 function getRootUrl(): string {
@@ -19,21 +19,6 @@ function getRootUrl(): string {
 
 const ROOT_URL = getRootUrl();
 
-const FC_EMBED = {
-  version: '1',
-  imageUrl: `${ROOT_URL}/hero-image.png`,
-  button: {
-    title: 'Play Lost in Space',
-    action: {
-      type: 'launch_frame',
-      name: 'Lost in Space Maze',
-      url: ROOT_URL,
-      splashImageUrl: `${ROOT_URL}/hero-image.png`,
-      splashBackgroundColor: '#0a0e1a',
-    },
-  },
-};
-
 export const metadata: Metadata = {
   title: 'Lost in Space Maze',
   description: 'Navigate through cosmic mazes in this futuristic space adventure',
@@ -43,8 +28,6 @@ export const metadata: Metadata = {
     'mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-status-bar-style': 'black-translucent',
-    'fc:miniapp': JSON.stringify(FC_EMBED),
-    'fc:frame': JSON.stringify(FC_EMBED),
     'base:app_id': '6978dc2488e3bac59cf3db9f',
   },
 };
@@ -57,10 +40,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <FarcasterReady />
+        <Providers>
         <GameProvider>
           {children}
         </GameProvider>
+        </Providers>
       </body>
     </html>
   );

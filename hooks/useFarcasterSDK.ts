@@ -1,44 +1,23 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { FarcasterUser } from '@/types/farcaster.types';
+import { useAccount } from "wagmi";
+import { FarcasterUser } from "@/types/farcaster.types";
 
 export function useFarcasterSDK() {
-  const [user, setUser] = useState<FarcasterUser | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  
-  useEffect(() => {
-    import('@farcaster/miniapp-sdk')
-      .then(async ({ sdk }) => {
-        try {
-          const context = await sdk.context;
-          setUser(context.user);
-        } catch (error) {
-          console.error('Farcaster SDK error:', error);
-        } finally {
-          setIsLoading(false);
-        }
-      })
-      .catch(() => setIsLoading(false));
-  }, []);
-  
+  const { address } = useAccount();
+
+  const user: FarcasterUser | null = address
+    ? {
+        fid: 0,
+        displayName: `${address.slice(0, 6)}…${address.slice(-4)}`,
+      }
+    : null;
+
   const openUrl = async (url: string) => {
-    try {
-      const { sdk } = await import('@farcaster/miniapp-sdk');
-      await sdk.actions.openUrl(url);
-    } catch {
-      window.open(url, '_blank');
-    }
+    window.open(url, "_blank", "noopener,noreferrer");
   };
-  
-  const close = async () => {
-    try {
-      const { sdk } = await import('@farcaster/miniapp-sdk');
-      await sdk.actions.close();
-    } catch {
-      window.close();
-    }
-  };
-  
-  return { user, isLoading, openUrl, close };
+
+  const close = async () => {};
+
+  return { user, isLoading: false, openUrl, close };
 }
